@@ -69,6 +69,12 @@ public class NodeManager : MonoBehaviour
             }
 
             currentNode.dialogueText = dSection["text"].InnerText;
+            currentNode.image = dSection["image"].InnerText;
+
+            if (dSection["scenechange"] != null)
+            {
+                currentNode.sceneChange = dSection["scenechange"].InnerText;
+            }
 
             if (dSection["options"] != null)
             {
@@ -90,25 +96,6 @@ public class NodeManager : MonoBehaviour
             prevNode = currentNode;
 
         }
-
-        //currentNode = head;
-        //while (currentNode.nextNode != null)
-        //{
-        //    Debug.Log("Text: " + currentNode.dialogueText);
-        //    if (currentNode.choiceCount > 1)
-        //    {
-        //        foreach(DialogueNode n in currentNode.nextNode)
-        //        {
-        //            Debug.Log("     Option: " + n.dialogueText);
-        //            Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
-        //        }
-        //        currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
-        //    }
-        //    else
-        //    {
-        //        currentNode = currentNode.nextNode[0];
-        //    }
-        //}
 
         NextOption(head);
 
@@ -194,6 +181,7 @@ public class NodeManager : MonoBehaviour
 
         }
 
+        currentSpawnedDialogue.GetComponent<Image>().sprite = Resources.Load<Sprite>(currentNode.image);
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
