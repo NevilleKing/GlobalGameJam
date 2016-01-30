@@ -76,5 +76,9 @@
 	<dialogueSection>
 		<text>Sully: I'll solve this on my own.</text>
 	</dialogueSection>
+	
+	<dialogueSection>
+		<text></text>
+	</dialogueSection>
 		
 </dialogue>
