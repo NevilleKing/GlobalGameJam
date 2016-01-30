@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Xml;
+using UnityEngine.UI;
 
 public class NodeManager : MonoBehaviour
 {
@@ -16,10 +17,11 @@ public class NodeManager : MonoBehaviour
 
     void Start()
     {
-        canvas = GameObject.Find("Canvas");
+        canvas = gameObject;
+        init();
     }
 
-    public NodeManager()
+    private void init()
     {
         // Create a node and populate the head value
         DialogueNode currentNode = new DialogueNode();
@@ -75,24 +77,24 @@ public class NodeManager : MonoBehaviour
 
         }
 
-        currentNode = head;
-        while (currentNode.nextNode != null)
-        {
-            Debug.Log("Text: " + currentNode.dialogueText);
-            if (currentNode.choiceCount > 1)
-            {
-                foreach(DialogueNode n in currentNode.nextNode)
-                {
-                    Debug.Log("     Option: " + n.dialogueText);
-                    Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
-                }
-                currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
-            }
-            else
-            {
-                currentNode = currentNode.nextNode[0];
-            }
-        }
+        //currentNode = head;
+        //while (currentNode.nextNode != null)
+        //{
+        //    Debug.Log("Text: " + currentNode.dialogueText);
+        //    if (currentNode.choiceCount > 1)
+        //    {
+        //        foreach(DialogueNode n in currentNode.nextNode)
+        //        {
+        //            Debug.Log("     Option: " + n.dialogueText);
+        //            Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
+        //        }
+        //        currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
+        //    }
+        //    else
+        //    {
+        //        currentNode = currentNode.nextNode[0];
+        //    }
+        //}
 
         NextOption(head);
 
@@ -100,13 +102,23 @@ public class NodeManager : MonoBehaviour
 
     void NextOption(DialogueNode nodeToSpawn)
     {
+        if (currentSpawnedDialogue != null)
+        {
+            Destroy(currentSpawnedDialogue);
+        }
+
         if (nodeToSpawn.choiceCount == 1)
         {
-
+            currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
         }
         else
         {
-
+            currentSpawnedDialogue = Instantiate(DialogueMultiple) as GameObject;
         }
+
+        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
+        txt.GetComponent<Text>().text = nodeToSpawn.dialogueText;
+        currentSpawnedDialogue.transform.SetParent(canvas.transform);
+        currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
 }
