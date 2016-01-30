@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Xml;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class NodeManager : MonoBehaviour
 {
@@ -138,14 +139,14 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
-        if (currentNode.choiceCount == 0)
+        if (currentNode.nextNode.Count == 0)
         {
             GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
             this.enabled = false;
             return;
         }
 
-        if (nodeToSpawn.choiceCount == 1 || nodeToSpawn.choiceCount == 0)
+        if (nodeToSpawn.nextNode.Count == 1 || nodeToSpawn.nextNode.Count == 0)
         {
             currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
             currentTimer = nodeToSpawn.time;
@@ -154,6 +155,25 @@ public class NodeManager : MonoBehaviour
         else
         {
             currentSpawnedDialogue = Instantiate(DialogueMultiple) as GameObject;
+            Button[] buttons = currentSpawnedDialogue.GetComponentsInChildren<Button>();
+
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].GetComponentInChildren<Text>().text = currentNode.nextNode[i].dialogueText;
+            }
+
+            buttons[0].onClick.AddListener(delegate () {
+                NextOption(currentNode.nextNode[0].nextNode[0]);
+            });
+
+            buttons[1].onClick.AddListener(delegate () {
+                NextOption(currentNode.nextNode[1].nextNode[0]);
+            });
+
+            buttons[2].onClick.AddListener(delegate () {
+                NextOption(currentNode.nextNode[2].nextNode[0]);
+            });
+
         }
 
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
