@@ -7,6 +7,10 @@ public class SceneStartEnd : MonoBehaviour {
     private bool fadeIn = true;
     private bool isEnabled = true;
 
+    public bool startDialgoue = true;
+
+    public float fadeSpeed = 0.01f;
+
     void Start()
     {
         fader = GetComponent<SpriteRenderer>();
@@ -21,13 +25,14 @@ public class SceneStartEnd : MonoBehaviour {
                 if (fader.color.a > 0)
                 {
                     Color currColour = fader.color;
-                    currColour.a -= 0.01f;
+                    currColour.a -= fadeSpeed;
                     fader.color = currColour;
                 }
                 else
                 {
                     isEnabled = false;
-                    GameObject.Find("Canvas").GetComponent<NodeManager>().enabled = true;
+                    if (startDialgoue)
+                        GameObject.Find("Canvas").GetComponent<NodeManager>().enabled = true;
                 }
             }
             else
@@ -35,7 +40,7 @@ public class SceneStartEnd : MonoBehaviour {
                 if (fader.color.a < 255)
                 {
                     Color currColour = fader.color;
-                    currColour.a += 0.01f;
+                    currColour.a += fadeSpeed;
                     fader.color = currColour;
                 }
             }

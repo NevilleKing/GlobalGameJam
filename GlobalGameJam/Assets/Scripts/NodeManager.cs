@@ -113,7 +113,7 @@ public class NodeManager : MonoBehaviour
         {
             if (currentTimer > 0)
             {
-                currentTimer -= 0.03f;
+                currentTimer -= 0.02f;
             }
             else
             {
