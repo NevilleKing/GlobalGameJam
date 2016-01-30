@@ -17,6 +17,8 @@ public class NodeManager : MonoBehaviour
 
     private DialogueNode currentNode;
 
+    public string path = "Assets/Dialogue/Dialogue.xml";
+
     private float currentTimer = 0.0f;
     private bool timerOn = false;
 
@@ -33,7 +35,7 @@ public class NodeManager : MonoBehaviour
         head = currentNode;
 
         // Read in the XML file
-        XmlTextReader reader = new XmlTextReader("Assets/Dialogue/Dialogue.xml");
+        XmlTextReader reader = new XmlTextReader(path);
 
         XmlDocument xml = new XmlDocument();
         xml.Load(reader);
