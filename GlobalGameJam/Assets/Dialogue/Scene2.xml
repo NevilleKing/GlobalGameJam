@@ -53,5 +53,9 @@
 	<dialogueSection>
 		<text>Sully: I've got a bad feeling about this.</text>
 	</dialogueSection>
+	
+	<dialogueSection>
+		<text></text>
+	</dialogueSection>
 		
 </dialogue>
