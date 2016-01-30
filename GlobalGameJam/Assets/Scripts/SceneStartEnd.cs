@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SceneStartEnd : MonoBehaviour {
 
@@ -8,6 +9,8 @@ public class SceneStartEnd : MonoBehaviour {
     private bool isEnabled = true;
 
     public bool startDialgoue = true;
+
+    public int nextScene;
 
     public float fadeSpeed = 0.01f;
 
@@ -37,11 +40,15 @@ public class SceneStartEnd : MonoBehaviour {
             }
             else
             {
-                if (fader.color.a < 255)
+                if (fader.color.a < 1.0f)
                 {
                     Color currColour = fader.color;
                     currColour.a += fadeSpeed;
                     fader.color = currColour;
+                }
+                else
+                {
+                    SceneManager.LoadScene(nextScene);
                 }
             }
         }
