@@ -1,13 +1,32 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Xml;
+using UnityEngine.UI;
 
 public class NodeManager : MonoBehaviour
 {
-    
-    public DialogueNode head;
 
-    public NodeManager()
+    public GameObject DialogueSingle;
+    public GameObject DialogueMultiple;
+
+    private GameObject canvas;
+
+    private DialogueNode head;
+
+    private GameObject currentSpawnedDialogue;
+
+    private DialogueNode currentNode;
+
+    private float currentTimer = 0.0f;
+    private bool timerOn = false;
+
+    void Start()
+    {
+        canvas = gameObject;
+        init();
+    }
+
+    private void init()
     {
         // Create a node and populate the head value
         DialogueNode currentNode = new DialogueNode();
@@ -63,23 +82,68 @@ public class NodeManager : MonoBehaviour
 
         }
 
-        currentNode = head;
-        while (currentNode.nextNode != null)
+        //currentNode = head;
+        //while (currentNode.nextNode != null)
+        //{
+        //    Debug.Log("Text: " + currentNode.dialogueText);
+        //    if (currentNode.choiceCount > 1)
+        //    {
+        //        foreach(DialogueNode n in currentNode.nextNode)
+        //        {
+        //            Debug.Log("     Option: " + n.dialogueText);
+        //            Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
+        //        }
+        //        currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
+        //    }
+        //    else
+        //    {
+        //        currentNode = currentNode.nextNode[0];
+        //    }
+        //}
+
+        NextOption(head);
+
+    }
+
+    void Update()
+    {
+        if (timerOn)
         {
-            Debug.Log("Text: " + currentNode.dialogueText);
-            if (currentNode.choiceCount > 1)
+            if (currentTimer > 0)
             {
-                foreach(DialogueNode n in currentNode.nextNode)
-                {
-                    Debug.Log("     Option: " + n.dialogueText);
-                    Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
-                }
-                currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
+                currentTimer -= 0.05f;
             }
             else
             {
-                currentNode = currentNode.nextNode[0];
+                timerOn = false;
+                NextOption(currentNode.nextNode[0]);
             }
         }
+    }
+
+    void NextOption(DialogueNode nodeToSpawn)
+    {
+        currentNode = nodeToSpawn;
+
+        if (currentSpawnedDialogue != null)
+        {
+            Destroy(currentSpawnedDialogue);
+        }
+
+        if (nodeToSpawn.choiceCount == 1)
+        {
+            currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
+            currentTimer = nodeToSpawn.time;
+            timerOn = true;
+        }
+        else
+        {
+            currentSpawnedDialogue = Instantiate(DialogueMultiple) as GameObject;
+        }
+
+        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
+        txt.GetComponent<Text>().text = nodeToSpawn.dialogueText;
+        currentSpawnedDialogue.transform.SetParent(canvas.transform);
+        currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
 }
