@@ -22,7 +22,22 @@ public class NodeManager : MonoBehaviour
 
         foreach (XmlNode dSection in sections)
         {
-            Debug.Log(dSection["text"].InnerText);
+
+
+            currentNode.dialogueText = dSection["text"].InnerText;
+
+            if (dSection["options"] != null)
+            {
+                XmlNodeList options = dSection["options"].ChildNodes;
+                foreach(XmlNode option in options)
+                {
+                    DialogueNode myOption = new DialogueNode();
+                    myOption.dialogueText = option["reply"].InnerText;
+                    currentNode.nextNode.Add(myOption);
+                }
+            }
+
+
         }
 
 
