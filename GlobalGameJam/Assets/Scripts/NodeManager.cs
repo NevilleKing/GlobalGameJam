@@ -64,7 +64,7 @@ public class NodeManager : MonoBehaviour
         }
 
         currentNode = head;
-        while (currentNode.nextNode.Count != 0)
+        while (currentNode.nextNode != null)
         {
             Debug.Log("Text: " + currentNode.dialogueText);
             if (currentNode.choiceCount > 1)
@@ -74,7 +74,7 @@ public class NodeManager : MonoBehaviour
                     Debug.Log("     Option: " + n.dialogueText);
                     Debug.Log("         Reply: " + n.nextNode[0].dialogueText);
                 }
-                currentNode = currentNode.nextNode[0].nextNode[0];
+                currentNode = currentNode.nextNode[0].nextNode[0].nextNode[0];
             }
             else
             {
