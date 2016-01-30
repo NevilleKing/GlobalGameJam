@@ -138,6 +138,13 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
+        if (currentNode.choiceCount == 0)
+        {
+            GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
+            this.enabled = false;
+            return;
+        }
+
         if (nodeToSpawn.choiceCount == 1 || nodeToSpawn.choiceCount == 0)
         {
             currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
