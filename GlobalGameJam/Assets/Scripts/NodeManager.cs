@@ -23,6 +23,8 @@ public class NodeManager : MonoBehaviour
     private float currentTimer = 0.0f;
     private bool timerOn = false;
 
+    public GameObject PlayerDeadAnim;
+
     void Start()
     {
         canvas = gameObject;
@@ -139,7 +141,10 @@ public class NodeManager : MonoBehaviour
     {
         if (currentNode != null && currentNode.playerDead)
         {
-            Debug.Log("DEAD");
+            GameObject deadAnim = Instantiate(PlayerDeadAnim);
+           // deadAnim.transform.parent = canvas.transform.parent;
+
+            return;
         }
 
         currentNode = nodeToSpawn;

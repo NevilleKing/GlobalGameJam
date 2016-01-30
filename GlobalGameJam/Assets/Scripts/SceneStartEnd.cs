@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneStartEnd : MonoBehaviour {
 
     private SpriteRenderer fader;
-    private bool fadeIn = true;
+    public bool fadeIn = true;
     private bool isEnabled = true;
 
     public bool startDialgoue = true;
