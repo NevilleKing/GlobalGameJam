@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneStartEnd : MonoBehaviour {
 
     private SpriteRenderer fader;
-    private bool fadeIn = true;
+    public bool fadeIn = true;
     private bool isEnabled = true;
 
     public bool startDialgoue = true;
@@ -40,7 +40,7 @@ public class SceneStartEnd : MonoBehaviour {
             }
             else
             {
-                if (fader.color.a < 1.0f)
+                if (fader.color.a < 1.2f)
                 {
                     Color currColour = fader.color;
                     currColour.a += fadeSpeed;

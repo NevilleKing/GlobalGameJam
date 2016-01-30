@@ -12,6 +12,8 @@ public class DialogueNode
 
     public int choiceCount = 0;
 
+    public bool playerDead = false;
+
     //DialogueNode[] nextNode = new DialogueNode[3];
 
     public List<DialogueNode> nextNode = new List<DialogueNode>();

@@ -23,6 +23,10 @@ public class NodeManager : MonoBehaviour
     private float currentTimer = 0.0f;
     private bool timerOn = false;
 
+    public int currentScene;
+
+    public GameObject PlayerDeadAnim;
+
     void Start()
     {
         canvas = gameObject;
@@ -75,6 +79,8 @@ public class NodeManager : MonoBehaviour
                     myOption.dialogueText = option["text"].InnerText;
                     DialogueNode replyOption = new DialogueNode();
                     replyOption.dialogueText = option["reply"].InnerText;
+                    if (option["reply"].GetAttribute("action") == "die")
+                        replyOption.playerDead = true;
                     myOption.nextNode.Add(replyOption);
                     currentNode.choiceCount++;
                     currentNode.nextNode.Add(myOption);
@@ -124,14 +130,26 @@ public class NodeManager : MonoBehaviour
         }
 
         GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
-        if (txt.GetComponent<Text>().text == "")
+        if (txt != null)
         {
-            txt.GetComponent<Text>().text = currentNode.dialogueText;
+            if (txt.GetComponent<Text>().text == "")
+            {
+                txt.GetComponent<Text>().text = currentNode.dialogueText;
+            }
         }
     }
 
     void NextOption(DialogueNode nodeToSpawn)
     {
+        if (currentNode != null && currentNode.playerDead)
+        {
+            GameObject deadAnim = Instantiate(PlayerDeadAnim);
+
+            deadAnim.GetComponent<SceneStartEnd>().nextScene = currentScene;
+
+            return;
+        }
+
         currentNode = nodeToSpawn;
 
         if (currentSpawnedDialogue != null)
