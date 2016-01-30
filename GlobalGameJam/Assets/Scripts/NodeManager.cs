@@ -17,6 +17,8 @@ public class NodeManager : MonoBehaviour
 
     private DialogueNode currentNode;
 
+    public string path = "Assets/Dialogue/Dialogue.xml";
+
     private float currentTimer = 0.0f;
     private bool timerOn = false;
 
@@ -33,7 +35,7 @@ public class NodeManager : MonoBehaviour
         head = currentNode;
 
         // Read in the XML file
-        XmlTextReader reader = new XmlTextReader("Assets/Dialogue/Dialogue.xml");
+        XmlTextReader reader = new XmlTextReader(path);
 
         XmlDocument xml = new XmlDocument();
         xml.Load(reader);
@@ -111,13 +113,19 @@ public class NodeManager : MonoBehaviour
         {
             if (currentTimer > 0)
             {
-                currentTimer -= 0.05f;
+                currentTimer -= 0.03f;
             }
             else
             {
                 timerOn = false;
                 NextOption(currentNode.nextNode[0]);
             }
+        }
+
+        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
+        if (txt.GetComponent<Text>().text == "")
+        {
+            txt.GetComponent<Text>().text = currentNode.dialogueText;
         }
     }
 
@@ -130,7 +138,14 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
-        if (nodeToSpawn.choiceCount == 1)
+        if (currentNode.choiceCount == 0)
+        {
+            GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
+            this.enabled = false;
+            return;
+        }
+
+        if (nodeToSpawn.choiceCount == 1 || nodeToSpawn.choiceCount == 0)
         {
             currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
             currentTimer = nodeToSpawn.time;
@@ -141,8 +156,6 @@ public class NodeManager : MonoBehaviour
             currentSpawnedDialogue = Instantiate(DialogueMultiple) as GameObject;
         }
 
-        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
-        txt.GetComponent<Text>().text = nodeToSpawn.dialogueText;
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
