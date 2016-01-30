@@ -10,7 +10,7 @@ public class DialogueNode
     // The line of text this node is storing
     public string dialogueText;
 
-    public int choiceCount = 1;
+    public int choiceCount = 0;
 
     //DialogueNode[] nextNode = new DialogueNode[3];
 
