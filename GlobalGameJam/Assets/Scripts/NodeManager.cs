@@ -113,13 +113,19 @@ public class NodeManager : MonoBehaviour
         {
             if (currentTimer > 0)
             {
-                currentTimer -= 0.05f;
+                currentTimer -= 0.03f;
             }
             else
             {
                 timerOn = false;
                 NextOption(currentNode.nextNode[0]);
             }
+        }
+
+        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
+        if (txt.GetComponent<Text>().text == "")
+        {
+            txt.GetComponent<Text>().text = currentNode.dialogueText;
         }
     }
 
@@ -132,7 +138,7 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
-        if (nodeToSpawn.choiceCount == 1)
+        if (nodeToSpawn.choiceCount == 1 || nodeToSpawn.choiceCount == 0)
         {
             currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
             currentTimer = nodeToSpawn.time;
@@ -143,8 +149,6 @@ public class NodeManager : MonoBehaviour
             currentSpawnedDialogue = Instantiate(DialogueMultiple) as GameObject;
         }
 
-        GameObject txt = GameObject.FindGameObjectWithTag("SpeechText");
-        txt.GetComponent<Text>().text = nodeToSpawn.dialogueText;
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
