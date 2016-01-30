@@ -4,8 +4,20 @@ using System.Xml;
 
 public class NodeManager : MonoBehaviour
 {
-    
-    public DialogueNode head;
+
+    public GameObject DialogueSingle;
+    public GameObject DialogueMultiple;
+
+    private GameObject canvas;
+
+    private DialogueNode head;
+
+    private GameObject currentSpawnedDialogue;
+
+    void Start()
+    {
+        canvas = GameObject.Find("Canvas");
+    }
 
     public NodeManager()
     {
@@ -80,6 +92,21 @@ public class NodeManager : MonoBehaviour
             {
                 currentNode = currentNode.nextNode[0];
             }
+        }
+
+        NextOption(head);
+
+    }
+
+    void NextOption(DialogueNode nodeToSpawn)
+    {
+        if (nodeToSpawn.choiceCount == 1)
+        {
+
+        }
+        else
+        {
+
         }
     }
 }
