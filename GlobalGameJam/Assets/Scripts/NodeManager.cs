@@ -23,6 +23,8 @@ public class NodeManager : MonoBehaviour
     private float currentTimer = 0.0f;
     private bool timerOn = false;
 
+    public int currentScene;
+
     public GameObject PlayerDeadAnim;
 
     void Start()
@@ -142,7 +144,8 @@ public class NodeManager : MonoBehaviour
         if (currentNode != null && currentNode.playerDead)
         {
             GameObject deadAnim = Instantiate(PlayerDeadAnim);
-           // deadAnim.transform.parent = canvas.transform.parent;
+
+            deadAnim.GetComponent<SceneStartEnd>().nextScene = currentScene;
 
             return;
         }

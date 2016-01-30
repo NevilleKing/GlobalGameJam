@@ -40,7 +40,7 @@ public class SceneStartEnd : MonoBehaviour {
             }
             else
             {
-                if (fader.color.a < 1.0f)
+                if (fader.color.a < 1.2f)
                 {
                     Color currColour = fader.color;
                     currColour.a += fadeSpeed;

@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dialogue>
-  
-	<dialogueSection>
-		<text>Test</text>
-		<options>
-			<option>
-				<text>Op1</text>
-				<reply action="die">Die</reply>
-			</option>
-			<option>
-				<text>Op2</text>
-				<reply>Not Die</reply>
-			</option>
-			<option>
-				<text>Op3</text>
-				<reply>Not Die</reply>
-			</option>
-		</options>
-	</dialogueSection>
 	
 	<dialogueSection>
 		<text>Boss: Sully, I need you to volunteer for early retirement...</text>
