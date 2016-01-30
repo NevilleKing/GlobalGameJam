@@ -15,6 +15,11 @@ public class NodeManager : MonoBehaviour
 
     private GameObject currentSpawnedDialogue;
 
+    private DialogueNode currentNode;
+
+    private float currentTimer = 0.0f;
+    private bool timerOn = false;
+
     void Start()
     {
         canvas = gameObject;
@@ -100,8 +105,26 @@ public class NodeManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        if (timerOn)
+        {
+            if (currentTimer > 0)
+            {
+                currentTimer -= 0.05f;
+            }
+            else
+            {
+                timerOn = false;
+                NextOption(currentNode.nextNode[0]);
+            }
+        }
+    }
+
     void NextOption(DialogueNode nodeToSpawn)
     {
+        currentNode = nodeToSpawn;
+
         if (currentSpawnedDialogue != null)
         {
             Destroy(currentSpawnedDialogue);
@@ -110,6 +133,8 @@ public class NodeManager : MonoBehaviour
         if (nodeToSpawn.choiceCount == 1)
         {
             currentSpawnedDialogue = Instantiate(DialogueSingle) as GameObject;
+            currentTimer = nodeToSpawn.time;
+            timerOn = true;
         }
         else
         {
