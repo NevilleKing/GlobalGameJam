@@ -14,6 +14,10 @@ public class DialogueNode
 
     public bool playerDead = false;
 
+    public string image;
+
+    public string sceneChange;
+
     //DialogueNode[] nextNode = new DialogueNode[3];
 
     public List<DialogueNode> nextNode = new List<DialogueNode>();
