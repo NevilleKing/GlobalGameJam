@@ -56,6 +56,46 @@
 	</dialogueSection>
 	
 	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: I think I've found something.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: What is it?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: It's a crumpled note...</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: ...look, there is a strange symbol on the paper.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: Hold up. I think i've seen that symbol before.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Where?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: There was a rumour going round town that a guy down at Jones' bar knew something about this symbol.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: We should get down there and find Jack the Fink, he might know something.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
 		<text></text>
 	</dialogueSection>
 		
