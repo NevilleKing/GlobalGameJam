@@ -20,6 +20,8 @@ public class DialogueNode
 
     public bool pauseBefore = false;
 
+    public string audio;
+
     //DialogueNode[] nextNode = new DialogueNode[3];
 
     public List<DialogueNode> nextNode = new List<DialogueNode>();
