@@ -61,7 +61,7 @@
 	</dialogueSection>
 	
 	<dialogueSection>
-		<scenechange>barscene.jpg</scenechange>
+		<scenechange>barscene</scenechange>
 		<image>chathead</image>
 		<text>Jack: Oh yeah? What do you want?</text>
 	</dialogueSection>
