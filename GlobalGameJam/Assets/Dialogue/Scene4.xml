@@ -50,7 +50,7 @@
 		<text>Sully: Alright,  let's check the place for evidence.</text>
 	</dialogueSection>
 	
-	<dialogueSection>
+	<dialogueSection action="pause">
 		<image>partnerchathead</image>
 		<text>Det Carter: You got it Sully!</text>
 	</dialogueSection>

@@ -78,6 +78,11 @@ public class NodeManager : MonoBehaviour
                 currentNode.sceneChange = dSection["scenechange"].InnerText;
             }
 
+            if (dSection.Attributes["action"] != null && dSection.Attributes["action"].Value  == "pause")
+            {
+                currentNode.pauseBefore = true;
+            }
+
             if (dSection["options"] != null)
             {
                 XmlNodeList options = dSection["options"].ChildNodes;
@@ -149,6 +154,12 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
+        if (currentNode.pauseBefore)
+        {
+            currentNode.pauseBefore = false;
+            return;
+        }
+
         if (currentNode.nextNode.Count == 0)
         {
             GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
@@ -202,5 +213,10 @@ public class NodeManager : MonoBehaviour
 
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
+    }
+
+    public void unPause()
+    {
+        NextOption(currentNode);
     }
 }
