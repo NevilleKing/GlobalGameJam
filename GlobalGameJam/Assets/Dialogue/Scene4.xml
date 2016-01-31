@@ -51,11 +51,6 @@
 	</dialogueSection>
 	
 	<dialogueSection action="pause">
-		<image>partnerchathead</image>
-		<text>Det Carter: You got it Sully!</text>
-	</dialogueSection>
-	
-	<dialogueSection>
 		<image>tom</image>
 		<text>Sully: I think I've found something.</text>
 	</dialogueSection>

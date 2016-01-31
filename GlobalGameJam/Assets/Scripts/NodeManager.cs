@@ -27,6 +27,8 @@ public class NodeManager : MonoBehaviour
 
     public GameObject PlayerDeadAnim;
 
+    public bool dialogueInProgress = true;
+
     void Start()
     {
         canvas = gameObject;
@@ -157,6 +159,7 @@ public class NodeManager : MonoBehaviour
         if (currentNode.pauseBefore)
         {
             currentNode.pauseBefore = false;
+            dialogueInProgress = false;
             return;
         }
 
@@ -218,5 +221,6 @@ public class NodeManager : MonoBehaviour
     public void unPause()
     {
         NextOption(currentNode);
+        dialogueInProgress = true;
     }
 }
