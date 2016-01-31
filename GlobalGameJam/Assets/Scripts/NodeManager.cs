@@ -69,7 +69,9 @@ public class NodeManager : MonoBehaviour
             }
 
             currentNode.dialogueText = dSection["text"].InnerText;
-            currentNode.image = dSection["image"].InnerText;
+
+            if (dSection["image"] != null)
+               currentNode.image = dSection["image"].InnerText;
 
             if (dSection["scenechange"] != null)
             {
@@ -182,7 +184,14 @@ public class NodeManager : MonoBehaviour
 
         }
 
-
+        if (currentNode.image != null)
+        {
+            Image img = currentSpawnedDialogue.GetComponentsInChildren<Image>()[1];
+            img.sprite = Resources.Load<Sprite>(currentNode.image);
+            Color c = img.color;
+            c.a = 1.0f;
+            img.color = c;
+        }
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
