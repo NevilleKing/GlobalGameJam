@@ -89,6 +89,8 @@ public class NodeManager : MonoBehaviour
                     replyOption.dialogueText = option["reply"].InnerText;
                     if (option["reply"].GetAttribute("action") == "die")
                         replyOption.playerDead = true;
+                    if (option["image"] != null)
+                        replyOption.image = option["image"].InnerText;
                     myOption.nextNode.Add(replyOption);
                     currentNode.choiceCount++;
                     currentNode.nextNode.Add(myOption);
@@ -192,6 +194,12 @@ public class NodeManager : MonoBehaviour
             c.a = 1.0f;
             img.color = c;
         }
+
+        if (currentNode.sceneChange != null)
+        {
+            Camera.main.GetComponentInChildren<SpriteRenderer>().sprite = Resources.Load<Sprite>(currentNode.sceneChange);
+        }
+
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
