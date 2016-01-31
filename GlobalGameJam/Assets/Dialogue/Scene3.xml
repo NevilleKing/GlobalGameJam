@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue>
+
+	<dialogueSection>
+		<image>bartenderchathead</image>
+		<text>Jones: Hi there Sully, here for the usual?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Not today Jones, I'm looking for someone.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bartenderchathead</image>
+		<text>Jones: Who's getting pinched then?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: I need to talk to Jack the Fink, you seen him around?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bartenderchathead</image>
+		<text>Jones: [Shifty] No, not seen him here for a long time. I don't even remember him actually.</text>
+		<options>
+			<option>
+				<image>bartenderchathead</image>
+				<text>Sully: [Threaten] Well you better try real hard to remember, I'm not in the mood for games!</text>
+				<reply action="die">Jones: No one threatens me in my bar! Eat lead!</reply>
+			</option>
+			
+			<option>
+				<image>bartenderchathead</image>
+				<text>Sully: [Bribe] Well maybe this will help you remember</text>
+				<reply>Jones: Now that you mention it, I do remember something. He's over there in the corner.</reply>
+			</option>
+			
+			<option>
+				<image>bartenderchathead</image>
+				<text>Sully: [Mock] Maybe you're too stupid to remember.</text>
+				<reply>Jones: Oh yeah? Well if I was too stupid I wouldn't know he is over there in the corner!</reply>
+			</option>
+		</options>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Thanks Jones...</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>[Talking to Jack the Fink]</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Hey Jack, I have some questions for you!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<scenechange>barscene</scenechange>
+		<image>chathead</image>
+		<text>Jack: Oh yeah? What do you want?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: What is this symbol? What does it mean?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>chathead</image>
+		<text>Jack: I don't know, ain't never seen that before.</text>
+		<options>
+			<option>
+				<image>chathead</image>
+				<text>Sully: [Threaten] We can play this the easy way or the hard way. Me, I'm hoping it's the hard way!</text>
+				<reply>Jack: Ok! Ok! No need to get violent. I'll tell you what I know.</reply>
+			</option>
+			
+			<option>
+				<image>chathead</image>
+				<text>Sully: [Insult] You idiot! I know you're lying.</text>
+				<reply action="die">Jack: Well I guess I'll just have to kill you then!</reply>
+			</option>
+			
+			<option>
+				<image>chathead</image>
+				<text>Sully: [Honesty] Listen, I'm a detective investigating a murder and I need your help.</text>
+				<reply action="die">Jack: Hey Guys! We got a cop poking around here!  --   [A group of gangsters comes into the bar from the back and shoot you]</reply>
+			</option>
+		</options>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>chathead</image>
+		<text>Jack: That symbol is supposed to point you to the Gambelli crime family.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: The Gambelli family? They don't operate outside the docks.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>chathead</image>
+		<text>Jack: Exactly, it's a fake.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>chathead</image>
+		<text>Jack: I heard there is this guy who lives on the corner of 28th street who has been making these. Goes by the name Tony Torrino.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Thanks for the info, I'll head right there.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image></image>
+		<text></text>
+	</dialogueSection>
+		
+</dialogue>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue>
+		
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: Sully, I need you to volunteer for early retirement...</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: ...and why the hell would I do that?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: I've been getting reports of you roughing up civillians, fighting with other officers and getting drunk on the job.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Spare me the lecture would you.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: Look I don't want to see you go, you're one of my best guys.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: But ever since Mary died you've been getting reckless and you're making the department look bad.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: I don't give a damn about how the department looks! I'm trying to stop a goddamn killer.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: You're on a revenge mission and you have to stop this...</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: ...What I need, is to find the bastard who did this!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: Look I get it, you couldn't solve her murder and it's killing you.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: But dammit man you have to let this go!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: I'm not going to drop this and you know it.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: So why don't you save us both the time and fire me?!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: Goddammit Sully don't make me do this!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Either fire me or get out of my damn way!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: That's it! Hand in your gun and badge. </text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>bosschathead</image>
+		<text>Boss: We're done here.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: To hell with you! I don't need your damn badge!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: I'll solve this on my own.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image></image>
+		<text></text>
+	</dialogueSection>
+		
+</dialogue>
