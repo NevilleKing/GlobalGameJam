@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialogue>
+
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: Sully, you got here just in time.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: What do we have here?</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: Well, the victim was Mrs Roberts, a local librarian.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: There are no signs of forced entry so she may have let her attacker in.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: Looks like she got stabbed whilst she was talking to someone.</text>
+		<options>
+			<option>
+				<image>partnerchathead</image>
+				<text>Sully: I guess she got...         ...Cut off.</text>
+				<reply>Det Carter: Not the puns again...</reply>
+			</option>
+			
+			<option>
+				<image>partnerchathead</image>
+				<text>Sully: Good detective work Carter, looks likes you're...         ...Dead on.</text>
+				<reply>Det Carter: Not the puns again...</reply>
+			</option>
+			
+			<option>
+				<image>partnerchathead</image>
+				<text>Sully: A librarian eh? Looks like she finally...             ...Checked out.</text>
+				<reply>Det Carter: Not the puns again...</reply>
+			</option>
+		</options>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>tom</image>
+		<text>Sully: Alright,  let's check the place for evidence.</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<image>partnerchathead</image>
+		<text>Det Carter: You got it Sully!</text>
+	</dialogueSection>
+	
+	<dialogueSection>
+		<text></text>
+	</dialogueSection>
+		
+</dialogue>
