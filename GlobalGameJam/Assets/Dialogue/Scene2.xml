@@ -2,10 +2,12 @@
 <dialogue>
 
 	<dialogueSection>
+		<audio>phonering</audio>
 		<text>[Phone ringing]</text>
 	</dialogueSection>
 	
 	<dialogueSection>
+		<audio>phonepickup</audio>
 		<image>tom</image>
 		<text>Sully: This better be important, you've got 5 seconds before I hang up.</text>
 	</dialogueSection>
@@ -67,6 +69,7 @@
 	</dialogueSection>
 	
 	<dialogueSection>
+		<audio addTo="Canvas">phonehangup</audio>
 		<image></image>
 		<text></text>
 	</dialogueSection>
