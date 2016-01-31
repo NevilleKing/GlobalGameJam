@@ -18,6 +18,8 @@ public class DialogueNode
 
     public string sceneChange;
 
+    public bool pauseBefore = false;
+
     //DialogueNode[] nextNode = new DialogueNode[3];
 
     public List<DialogueNode> nextNode = new List<DialogueNode>();

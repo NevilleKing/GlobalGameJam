@@ -27,6 +27,8 @@ public class NodeManager : MonoBehaviour
 
     public GameObject PlayerDeadAnim;
 
+    public bool dialogueInProgress = true;
+
     void Start()
     {
         canvas = gameObject;
@@ -76,6 +78,11 @@ public class NodeManager : MonoBehaviour
             if (dSection["scenechange"] != null)
             {
                 currentNode.sceneChange = dSection["scenechange"].InnerText;
+            }
+
+            if (dSection.Attributes["action"] != null && dSection.Attributes["action"].Value  == "pause")
+            {
+                currentNode.pauseBefore = true;
             }
 
             if (dSection["options"] != null)
@@ -149,6 +156,13 @@ public class NodeManager : MonoBehaviour
             Destroy(currentSpawnedDialogue);
         }
 
+        if (currentNode.pauseBefore)
+        {
+            currentNode.pauseBefore = false;
+            dialogueInProgress = false;
+            return;
+        }
+
         if (currentNode.nextNode.Count == 0)
         {
             GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
@@ -202,5 +216,11 @@ public class NodeManager : MonoBehaviour
 
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
+    }
+
+    public void unPause()
+    {
+        NextOption(currentNode);
+        dialogueInProgress = true;
     }
 }
