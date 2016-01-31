@@ -89,6 +89,8 @@ public class NodeManager : MonoBehaviour
                     replyOption.dialogueText = option["reply"].InnerText;
                     if (option["reply"].GetAttribute("action") == "die")
                         replyOption.playerDead = true;
+                    if (option["image"] != null)
+                        replyOption.image = option["image"].InnerText;
                     myOption.nextNode.Add(replyOption);
                     currentNode.choiceCount++;
                     currentNode.nextNode.Add(myOption);
