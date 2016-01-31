@@ -124,6 +124,7 @@ public class NodeManager : MonoBehaviour
                 txt.GetComponent<Text>().text = currentNode.dialogueText;
             }
         }
+
     }
 
     void NextOption(DialogueNode nodeToSpawn)
@@ -181,7 +182,7 @@ public class NodeManager : MonoBehaviour
 
         }
 
-        currentSpawnedDialogue.GetComponent<Image>().sprite = Resources.Load<Sprite>(currentNode.image);
+
         currentSpawnedDialogue.transform.SetParent(canvas.transform);
         currentSpawnedDialogue.GetComponent<RectTransform>().offsetMax = new Vector2(-200f, 150f);
     }
