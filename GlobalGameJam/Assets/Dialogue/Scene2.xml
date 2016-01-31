@@ -69,7 +69,7 @@
 	</dialogueSection>
 	
 	<dialogueSection>
-		<audio>phonehangup</audio>
+		<audio addTo="Canvas">phonehangup</audio>
 		<image></image>
 		<text></text>
 	</dialogueSection>

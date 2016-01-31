@@ -75,6 +75,13 @@ public class NodeManager : MonoBehaviour
             if (dSection["image"] != null)
                currentNode.image = dSection["image"].InnerText;
 
+            if (dSection["audio"] != null)
+            {
+                currentNode.audio = dSection["audio"].InnerText;
+                if (dSection["audio"].Attributes["addTo"] != null)
+                    currentNode.addToCanvas = true;
+            }
+
             if (dSection["scenechange"] != null)
             {
                 currentNode.sceneChange = dSection["scenechange"].InnerText;
@@ -163,6 +170,19 @@ public class NodeManager : MonoBehaviour
             return;
         }
 
+        if (currentNode.audio != null)
+        {
+            AudioSource myClip = null;
+            if (currentNode.addToCanvas)
+            {
+                myClip = GameObject.Find("Canvas").AddComponent<AudioSource>();
+
+                myClip.clip = Resources.Load<AudioClip>(currentNode.audio);
+                myClip.playOnAwake = true;
+                myClip.Play();
+            }
+        }
+
         if (currentNode.nextNode.Count == 0)
         {
             GameObject.Find("Fade").GetComponent<SceneStartEnd>().FadeOut();
@@ -207,6 +227,19 @@ public class NodeManager : MonoBehaviour
             Color c = img.color;
             c.a = 1.0f;
             img.color = c;
+        }
+
+        if (currentNode.audio != null)
+        {
+            AudioSource myClip = null;
+            if (!currentNode.addToCanvas)
+            {
+                myClip = currentSpawnedDialogue.AddComponent<AudioSource>();
+
+                myClip.clip = Resources.Load<AudioClip>(currentNode.audio);
+                myClip.playOnAwake = true;
+                myClip.Play();
+            }
         }
 
         if (currentNode.sceneChange != null)

@@ -22,6 +22,8 @@ public class DialogueNode
 
     public string audio;
 
+    public bool addToCanvas = false;
+
     //DialogueNode[] nextNode = new DialogueNode[3];
 
     public List<DialogueNode> nextNode = new List<DialogueNode>();
