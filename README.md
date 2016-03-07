@@ -17,3 +17,10 @@ Scott Millar
 Special thanks to Ryan Burton
 ######Audio
 Gaz Bailey
+######
+Insperation
+Zachary Claret-Scott
+
+Nick Jennett
+
+Adam Linscott
