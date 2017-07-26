@@ -3,17 +3,17 @@ New York. 1948. Former Detective Frank 'Sully' Sullivan must uncover a series of
 
 See http://globalgamejam.org/2016/games/detective-clich%C3%A9-investigates
 
-##How to Play
+## How to Play
 To play the game you can clone this repo / download as zip and open the MainMenu scene in Unity (Assets/Scenes/MainMenu.unity). You can also go to the Global Game Jam website above and download an executable. There is currently an issue in the executable version with the fade, so if you get that open in Unity.
 
-##Credits
-######Programming
+## Credits
+###### Programming
 Neville King
-######Script Writing
+###### Script Writing
 Adam Walker
-######Art Assets
+###### Art Assets
 Scott Millar
 
 Special thanks to Ryan Burton
-######Audio
+###### Audio
 Gaz Bailey
